@@ -116,7 +116,7 @@ function App() {
         <h2>About Me</h2>
         <div className="split-section">
           <div className="about-content">
-            <p>Hello and welcome to my portfolio! Check out the different sections and if you have any questions, feel free to ask VinceGPT!</p>
+            <p>Hello and welcome to my portfolio! Check out my projects and the skills cards below. If you have any questions, feel free to ask VinceGPT!</p>
           </div>
           <div className="photo-container">
             <img src="/me.png" alt="Me" className="photo"/>

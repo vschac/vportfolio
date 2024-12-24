@@ -10,8 +10,8 @@ Projects:
 - ClubHub: collaborated with 27 other students (KTP brothers) to build a club dashboard for the school. I worked on the backend team writing API endpoints in the Flask framework.
 
 Miscellaneous facts:
-- I have a twin sister and a younger brother (4 years younger)
-- I can bench 255 pounds
+- I have a twin sister (Isabel) and a younger brother (Eric, 4 years younger)
+- I can bench 255 pounds but I don't squat or deadlift
 - My favorite food is Carbonara pasta
 - My favorite color is orange
 - Favorite music artists: The Strokes, The Voidz, Suicideboys, 21 Savage, Arctic Monkeys, Brutalismuss 3000, A$AP Rockey, Mazzy Star

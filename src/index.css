@@ -3,14 +3,13 @@
 
 :root {
   /* Color Scheme */
-  --primary-color: #ff9966; /* Orange from skills cards */
-  --secondary-color: #ff7733; /* Darker orange */
-  --background-color: #0e0c0c; /* Darker background */
-  --surface-color: #3f3f3f; /* Matching skills cards background */
+  --primary-color: #ff9966; 
+  --secondary-color: #ff7733;
+  --background-color: #0e0c0c;
+  --surface-color: #3f3f3f;
   --text-primary: #ffffff;
   --text-secondary: #cccccc;
-  --accent-color: #ff9966; /* Matching the gradient from skills cards */
-  
+  --accent-color: #ff9966;
   /* Spacing remains the same */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
@@ -25,9 +24,8 @@
   box-sizing: border-box;
 }
 
-/* Update body and html styles */
-html {
-  background-color: #0a0a0a; /* Solid black background */
+html, body {
+  background-color: #0a0a0a;
   min-height: 100%;
 }
 
@@ -38,21 +36,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(135deg, #0a0a0a 0%, #2a2a2a 100%);
-  background-attachment: fixed; /* Keep gradient fixed while scrolling */
+  background-attachment: fixed;
   color: var(--text-primary);
   line-height: 1.6;
-  min-height: 100vh;
-  margin: 0;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
-/* Update Navigation Styles */
 .navbar {
   position: fixed;
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  width: auto;
   background-color: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(10px);
   padding: 8px 16px;
@@ -63,7 +57,6 @@ body {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Add new classes for navbar states */
 .navbar.hidden {
   opacity: 0;
   transform: translate(-50%, -100%);
@@ -76,7 +69,6 @@ body {
   pointer-events: auto;
 }
 
-/* Add hover detection area */
 .navbar-trigger {
   position: fixed;
   top: 0;
@@ -135,11 +127,9 @@ body {
   transform: scaleX(1);
 }
 
-/* Update responsive styles for navbar */
 @media (max-width: 768px) {
   .navbar {
-    width: 90%; /* Allow some margin on mobile */
-    margin-top: 10px;
+    width: 90%;
   }
 
   .nav-content ul {
@@ -256,35 +246,30 @@ section > h2::after {
   align-items: center;
 }
 
-/* Update the hero content styles */
-.hero-title {
-  background: rgba(10, 10, 10, 0.4);
-  backdrop-filter: blur(8px);
-  border-radius: 15px;
-  border: 1px solid rgba(255, 153, 102, 0.1);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-  padding: 1rem 2rem;
-  margin-bottom: 1rem;
-}
-
+.hero-title,
 .text-container {
   background: rgba(10, 10, 10, 0.4);
   backdrop-filter: blur(8px);
   border-radius: 15px;
   border: 1px solid rgba(255, 153, 102, 0.1);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero-title {
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+}
+
+.text-container {
   padding: 0.7rem 1.5rem;
-  margin: 0.5rem;
+  margin: 0.5rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-width: 350px;
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-/* Remove individual backdrops */
 .typing-container,
 .fade-in {
   background: none;
@@ -295,7 +280,6 @@ section > h2::after {
   margin: 0;
 }
 
-/* Update responsive styles */
 @media (max-width: 768px) {
   .text-container {
     min-width: 280px;
@@ -307,7 +291,6 @@ section > h2::after {
   }
 }
 
-/* Glowing Text Effect */
 .glowing-text {
   font-size: 4rem;
   font-weight: bold;
@@ -342,7 +325,6 @@ section > h2::after {
   }
 }
 
-/* Typewriter Effect */
 .typewriter {
   font-size: 2rem;
   color: var(--text-primary);
@@ -369,7 +351,6 @@ section > h2::after {
   50% { border-color: var(--accent-color) }
 }
 
-/* Fade-in Animation */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -388,7 +369,6 @@ section > h2::after {
   }
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .hero-content {
     padding: 2rem;
@@ -416,9 +396,9 @@ section > h2::after {
 
 .cursor {
   display: inline-block;
-  width: 10px; /* Adjust width as needed */
-  background-color: var(--accent-color); /* Cursor color */
-  animation: blink 0.7s step-end infinite; /* Blinking animation */
+  width: 10px; 
+  background-color: var(--accent-color);
+  animation: blink 0.7s step-end infinite;
 }
 
 @keyframes blink {
@@ -478,7 +458,6 @@ section > h2::after {
   animation: rotate 8s linear infinite;
 }
 
-/* Update moveAsteroid animation */
 @keyframes moveAsteroid {
   0% {
     left: var(--start-x);
@@ -490,7 +469,6 @@ section > h2::after {
   }
 }
 
-/* Add this to ensure the animation is applied */
 .asteroid:not(.exploding) {
   animation: moveAsteroid var(--duration) linear forwards;
 }
@@ -560,7 +538,6 @@ section > h2::after {
   }
 }
 
-/* Add a subtle parallax effect to the background */
 @media (hover: hover) {
   .hero-section {
     animation: subtleParallax 20s ease-in-out infinite alternate;
@@ -576,10 +553,9 @@ section > h2::after {
   }
 }
 
-/* Update responsive styles to match */
 @media (max-width: 1200px) {
   .photo-container {
-    min-width: 250px; /* Match the new width */
+    min-width: 250px; 
   }
 }
 
@@ -587,19 +563,15 @@ section > h2::after {
 
 
 
-
-
-
 /*About Section*/
 .about-content {
-  flex: 2; /* Takes up more space */
+  flex: 2; 
   position: relative;
   padding: 20px 40px;
   margin: 20px;
   color: var(--text-primary);
 }
 
-/* Keep only vertical lines */
 .about-content::before,
 .about-content::after {
   content: '';
@@ -623,37 +595,33 @@ section > h2::after {
   right: 0;
 }
 
-/* Update paragraph styles */
 .about-content p {
   position: relative;
   padding: 20px 0;
   font-size: 1.5rem;
   line-height: 1.9;
-  max-width: 800px; /* Add max-width to control line length */
+  max-width: 800px; 
 }
 
-/* Remove top and bottom lines */
 .about-content p::before,
 .about-content p::after {
   display: none;
 }
 
-/* Update split section layout */
 .split-section {
   display: flex;
   gap: var(--spacing-lg);
-  max-width: 1400px; /* Increased from 1200px */
+  max-width: 1400px; 
   padding: var(--spacing-md);
   align-items: center;
 }
 
-/* Adjust photo container position */
 .photo-container {
   flex: 0.8;
   position: relative;
   display: inline-block;
-  width: 250px; /* Decreased from 300px */
-  height: 250px; /* Decreased to maintain square aspect ratio */
+  width: 250px; 
+  height: 250px; 
   border-radius: 15px;
   background: var(--background-color);
   overflow: hidden;
@@ -665,7 +633,6 @@ section > h2::after {
   flex: 2;
 }
 
-/* Special case for chat header */
 .chatbot-container h2 {
   text-align: left;
   margin-bottom: var(--spacing-sm);
@@ -676,10 +643,8 @@ section > h2::after {
   left: 0;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .about-content::after {
-    /* Remove triangle on mobile */
     display: none;
   }
   
@@ -687,9 +652,9 @@ section > h2::after {
     margin-left: 0;
   }
 }
-/* Add these styles to your CSS */
+
 #about {
-  max-width: 1400px; /* Match the skills section width */
+  max-width: 1400px;
   margin: 0 auto;
   padding: var(--spacing-lg);
   width: 100%;
@@ -701,26 +666,24 @@ section > h2::after {
   width: 100%;
   padding: var(--spacing-md);
   align-items: center;
-  justify-content: space-between; /* Add this to ensure even spacing */
+  justify-content: space-between; 
 }
 
-/* Adjust flex proportions */
 .about-content {
   flex: 2;
-  max-width: 600px; /* Control maximum width */
+  max-width: 600px; 
 }
 
 .photo-container {
   flex: 1;
-  min-width: 350px; /* Ensure photo maintains size */
+  min-width: 350px; 
 }
 
 .chatbot-container {
   flex: 2;
-  min-width: 500px; /* Ensure chat maintains minimum width */
+  min-width: 500px; 
 }
 
-/* Update responsive styles */
 @media (max-width: 1200px) {
   #about {
     padding: var(--spacing-md);
@@ -762,7 +725,6 @@ section > h2::after {
   box-shadow: 0 12px 40px 0 rgba(255, 153, 102, 0.3);
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .split-section {
     flex-direction: column;
@@ -823,7 +785,6 @@ section > h2::after {
   background: var(--secondary-color);
 }
 
-/* Update chat message styles */
 .message-wrapper {
   width: 100%;
   display: flex;
@@ -845,8 +806,8 @@ section > h2::after {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   max-width: 80%;
   width: fit-content;
-  word-wrap: break-word; /* Add this to handle long words */
-  overflow-wrap: break-word; /* Add this for better word breaking */
+  word-wrap: break-word; 
+  overflow-wrap: break-word; 
 }
 
 .message.incoming {
@@ -859,7 +820,6 @@ section > h2::after {
   border-bottom-right-radius: 5px;
 }
 
-/* Update chat body styles */
 .chat-body {
   max-height: 400px;
   overflow-y: auto;
@@ -880,8 +840,8 @@ section > h2::after {
 }
 
 .chat-footer input[type="text"] {
-  flex: 1; /* Allow input to grow */
-  min-width: 0; /* Allow input to shrink */
+  flex: 1; 
+  min-width: 0;
   padding: 12px;
   border: 1px solid rgba(255, 153, 102, 0.2);
   border-radius: 20px;
@@ -897,7 +857,7 @@ section > h2::after {
 }
 
 .chat-footer button {
-  white-space: nowrap; /* Prevent button text from wrapping */
+  white-space: nowrap; 
   padding: 12px 20px;
   border-radius: 20px;
   background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
@@ -937,18 +897,18 @@ section > h2::after {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 500px; /* Larger than the container for full visibility */
+  width: 500px;
   height: 500px; 
   background: radial-gradient(circle, var(--secondary-color), transparent 80%);
-  transform: translate(-50%, -50%) scale(0); /* Initially hidden */
-  border-radius: 50%; /* Circular highlight */
-  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out; /* Smooth reveal */
-  z-index: 0; /* Ensure it stays behind the photo */
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  z-index: 0; 
 }
 
 .photo-container:hover::before {
-  transform: translate(-50%, -50%) scale(1); /* Expand highlight */
-  opacity: 1; /* Ensure it's visible */
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1; 
 }
 
 .photo {
@@ -956,10 +916,9 @@ section > h2::after {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the image fits the container */
-  z-index: 1; /* Keeps the photo above the highlight */
+  object-fit: cover;
+  z-index: 1; 
 }
-
 
 
 
@@ -973,25 +932,24 @@ section > h2::after {
   max-width: 100%;
   margin: 0 auto;
   overflow-x: auto;
-  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-y: hidden; 
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 10px; /* Reduced padding for thinner scrollbar area */
+  padding-bottom: 10px; 
 }
 
-/* Customize scrollbar */
 .projects-grid::-webkit-scrollbar {
-  height: 4px; /* Make scrollbar thinner */
+  height: 4px; 
 }
 
 .projects-grid::-webkit-scrollbar-track {
-  background: rgba(255, 153, 102, 0.05); /* More subtle track */
+  background: rgba(255, 153, 102, 0.05); 
   border-radius: 2px;
 }
 
 .projects-grid::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, transparent, var(--accent-color), transparent); /* Gradient thumb */
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent); 
   border-radius: 2px;
 }
 
@@ -1002,21 +960,19 @@ section > h2::after {
   max-width: 600px;
   scroll-snap-align: start;
   perspective: 1500px;
-  height: 450px; /* Fixed height instead of min-height */
-  overflow: hidden; /* Hide any overflow */
+  height: 450px;
+  overflow: hidden;
 }
 
-/* Add fade effect to indicate more content */
 .projects-section {
   position: relative;
-  max-width: 1400px; /* Match other sections */
+  max-width: 1400px; 
   margin: 0 auto;
 }
 
-/* Update responsive styles */
 @media (max-width: 1100px) {
   .project-container {
-    flex: 0 0 80vw; /* Take up most of the screen on smaller devices */
+    flex: 0 0 80vw; 
     min-width: 300px;
   }
 }
@@ -1024,7 +980,7 @@ section > h2::after {
 .project-container {
   perspective: 1500px;
   min-height: 450px;
-  min-width: 600px; /* Set minimum height */
+  min-width: 600px; 
   width: 100%;
 }
 
@@ -1043,8 +999,8 @@ section > h2::after {
 }
 
 .project-card:hover {
-  border-color: var(--accent-color); /* Change border color on hover */
-  box-shadow: 0 0 20px rgba(255, 153, 102, 0.2); /* Add glow effect */
+  border-color: var(--accent-color); 
+  box-shadow: 0 0 20px rgba(255, 153, 102, 0.2); 
 }
 
 .project-card .project-front,
@@ -1058,7 +1014,7 @@ section > h2::after {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   background: linear-gradient(135deg, #0a0a0a 0%, #2a2a2a 100%);
-  border-radius: 1.8rem; /* Slightly smaller than parent to account for border */
+  border-radius: 1.8rem; 
 }
 
 .project-card .project-front {
@@ -1069,55 +1025,60 @@ section > h2::after {
   transform: rotateY(180deg);
   color: var(--text-primary);
 }
-/* From Uiverse.io by Mangesh636 */ 
-.github-button {
-  background: transparent;
-  position: relative;
-  padding: 5px 15px;
+
+.project-back .back-content {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  font-size: 17px;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  border: 1px solid rgb(36, 41, 46);
-  border-radius: 25px;
-  outline: none;
-  overflow: hidden;
+  justify-content: center;
+  gap: 20px;
+  height: 100%;
+  padding: 20px;
+}
+
+.github-link {
   color: var(--text-primary);
-  transition: color 0.3s 0.1s ease-out;
-  text-align: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: inline-block;
 }
 
-.github-button span {
-  margin: 10px;
+.github-link:hover {
+  transform: scale(1.1);
+  color: var(--accent-color);
 }
 
-.github-button::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  content: "";
-  border-radius: 50%;
-  display: block;
-  width: 20em;
-  height: 20em;
-  left: -5em;
-  text-align: center;
-  transition: box-shadow 0.5s ease-out;
-  z-index: -1;
+.project-back h3 {
+  color: var(--accent-color);
+  font-size: 1.5rem;
 }
 
-.github-button:hover {
-  color: #fff;
+.project-back p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.info-link {
+  color: var(--text-primary);
+  background: rgba(255, 153, 102, 0.1);
+  padding: 10px 20px;
+  border-radius: 20px;
   border: 1px solid var(--accent-color);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
 }
 
-.github-button:hover::before {
-  box-shadow: inset 0 0 0 10em var(--primary-color);
+.info-link:hover {
+  background: rgba(255, 153, 102, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 153, 102, 0.2);
+}
+
+.info-link p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--accent-color);
 }
 
 .project-card.flipped {
@@ -1178,7 +1139,6 @@ section > h2::after {
   line-height: 1.6;
 }
 
-/* Responsive adjustments */
 @media (max-width: 900px) {
   .projects-grid {
     grid-template-columns: 1fr;
@@ -1186,14 +1146,12 @@ section > h2::after {
   }
 }
 
-/* Tooltip container */
 .tooltip-container {
   position: relative;
   display: inline-block;
   margin: 10px;
 }
 
-/* Icon styling */
 .icon {
   width: 30px;
   height: 30px;
@@ -1206,7 +1164,6 @@ section > h2::after {
     filter 0.3s ease;
 }
 
-/* SVG Animation: Rotate and scale effect */
 .icon svg {
   transition: transform 0.5s ease-in-out;
   fill: var(--text-primary);
@@ -1216,7 +1173,6 @@ section > h2::after {
   transform: rotate(360deg) scale(1.2);
 }
 
-/* Tooltip styling */
 .tooltip {
   visibility: hidden;
   width: 180px;
@@ -1236,11 +1192,10 @@ section > h2::after {
   transform: translateY(10px);
   font-size: 0.8rem;
   line-height: 1.3;
-  text-shadow: none; /* Remove any text shadow */
-  box-shadow: none; /* Remove any box shadow */
+  text-shadow: none;
+  box-shadow: none;
 }
 
-/* Tooltip Arrow */
 .tooltip::after {
   content: "";
   position: absolute;
@@ -1250,10 +1205,9 @@ section > h2::after {
   border-width: 5px;
   border-style: solid;
   border-color: #333 transparent transparent transparent;
-  filter: none; /* Remove any filter effects */
+  filter: none; 
 }
 
-/* Show tooltip on hover */
 .tooltip-container:hover .tooltip {
   visibility: visible;
   opacity: 1;
@@ -1406,7 +1360,6 @@ section > h2::after {
   padding: 10px;
 }
 
-/* Add styles for the back text as well for consistency */
 .skill-back-content strong {
   padding: 20px;
   font-size: 1.1rem;
@@ -1424,7 +1377,6 @@ section > h2::after {
   perspective: 1000px;
 }
 
-/* Create an offset pattern for cards */
 .skills-grid .skill-card:nth-child(odd) {
   transform: translateY(-20px);
 }
@@ -1442,7 +1394,6 @@ section > h2::after {
   z-index: 10;
 }
 
-/* Add hover effects to neighboring cards */
 .skills-grid .skill-card:hover + .skill-card {
   transform: translateX(15px);
 }
@@ -1451,7 +1402,6 @@ section > h2::after {
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Update responsive grid with maintained effects */
 @media (max-width: 1200px) {
   .skills-grid {
     grid-template-columns: repeat(4, 1fr);
@@ -1480,7 +1430,6 @@ section > h2::after {
   }
 }
 
-/* Add a subtle floating animation to all cards */
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
@@ -1495,7 +1444,6 @@ section > h2::after {
   animation-delay: calc(var(--i, 0) * -1s);
 }
 
-/* Stagger the floating animation */
 .skills-grid .skill-card:nth-child(2n) {
   --i: 1;
 }
@@ -1521,7 +1469,7 @@ section > h2::after {
   justify-content: center;
   align-items: center;
   padding: var(--spacing-md);
-  min-height: 300px; /* Add minimum height to ensure space for cards */
+  min-height: 300px;
 }
 
 .container .glass {
@@ -1536,22 +1484,20 @@ section > h2::after {
   align-items: center;
   transition: 0.5s;
   border-radius: 10px;
-  margin: 0 -45px; /* Negative margin for overlap */
+  margin: 0 -45px; 
   backdrop-filter: blur(10px);
   transform: rotate(calc(var(--r) * 1deg));
 }
 
-/* Update hover effect to adjust margins */
 .container:hover .glass {
   transform: rotate(0deg);
-  margin: 0 10px; /* Positive margin when hovered */
+  margin: 0 10px; 
 }
 
-/* Ensure cards stack properly with z-index */
 .container a {
   position: relative;
   z-index: 1;
-  transition: z-index 0s 0.5s; /* Delay z-index change */
+  transition: z-index 0s 0.5s; 
 }
 
 .container a:hover {
@@ -1585,7 +1531,6 @@ footer {
   border-top: 1px solid rgba(255, 153, 102, 0.1);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .nav-content {
     flex-direction: column;
@@ -1624,61 +1569,3 @@ footer {
     align-items: center;
   }
 }
-
-.project-back .back-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  height: 100%;
-  padding: 20px;
-}
-
-.github-link {
-  color: var(--text-primary);
-  transition: transform 0.3s ease, color 0.3s ease;
-  display: inline-block;
-}
-
-.github-link:hover {
-  transform: scale(1.1);
-  color: var(--accent-color);
-}
-
-.project-back h3 {
-  color: var(--accent-color);
-  font-size: 1.5rem;
-}
-
-.project-back p {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-}
-
-.info-link {
-  color: var(--text-primary);
-  background: rgba(255, 153, 102, 0.1);
-  padding: 10px 20px;
-  border-radius: 20px;
-  border: 1px solid var(--accent-color);
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 10px;
-}
-
-.info-link:hover {
-  background: rgba(255, 153, 102, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 153, 102, 0.2);
-}
-
-.info-link p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--accent-color);
-}
-
-
-
