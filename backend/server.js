@@ -11,7 +11,8 @@ app.use(cors({
     'http://localhost:3001', 
     'http://localhost:3000', 
     'https://vschac.com',
-    'https://secret-sands-35726.herokuapp.com'
+    'https://dry-fortress-09142-f44d31c96309.herokuapp.com',
+    'https://www.vschac.com'
   ],
   methods: ['POST', 'GET', 'OPTIONS'],
   credentials: true
@@ -111,6 +112,10 @@ app.post('/api/chat', async (req, res) => {
       details: error.message 
     });
   }
+});
+
+app.get('/', (req, res) => {
+  res.json({ message: 'Server is running' });
 });
 
 const PORT = process.env.PORT || 3000;

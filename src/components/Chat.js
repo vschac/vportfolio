@@ -1,49 +1,63 @@
-import { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const Chat = () => {
   const [messages, setMessages] = useState([
     { type: 'incoming', text: 'Hello, how can I assist you today?' }
   ]);
   const [inputMessage, setInputMessage] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
+  const messagesEndRef = useRef(null);
+
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3000';
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   const handleSubmit = async (e) => {
-    console.log('Submit handler triggered'); // Add this first
     e.preventDefault();
-    if (!inputMessage.trim() || isLoading) return;
+    if (!inputMessage.trim()) return;
 
-    // Add user message to chat
-    const userMessage = { type: 'outgoing', text: inputMessage };
+    // Add user message
+    const userMessage = { text: inputMessage, type: 'outgoing' };
     setMessages(prev => [...prev, userMessage]);
     setInputMessage('');
-    setIsLoading(true);
+    setIsTyping(true);
 
     try {
-      // Send entire message history for context
-      const response = await fetch('http://localhost:3000/api/chat', {
+      console.log('Sending request to:', BACKEND_URL);
+      const response = await fetch(`${BACKEND_URL}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           messages: [...messages, userMessage]
-        }),
+        })
       });
 
-      if (!response.ok) throw new Error('Network response was not ok');
-      
-      const data = await response.json();
-      const aiMessage = { type: 'incoming', text: data.message };
-      setMessages(prev => [...prev, aiMessage]);
+      if (!response.ok) {
+        const errorData = await response.text();
+        console.error('Server responded with:', response.status, errorData);
+        throw new Error(`HTTP error! status: ${response.status}, message: ${errorData}`);
+      }
 
+      const data = await response.json();
+      console.log('Received response:', data);
+      
+      setMessages(prev => [...prev, { text: data.message, type: 'incoming' }]);
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Detailed error:', error);
       setMessages(prev => [...prev, { 
-        type: 'incoming', 
-        text: 'Sorry, I encountered an error. Please try again.' 
+        text: `Error: ${error.message}. Please try again later.`, 
+        type: 'incoming' 
       }]);
     } finally {
-      setIsLoading(false);
+      setIsTyping(false);
     }
   };
 
@@ -60,7 +74,7 @@ const Chat = () => {
             </div>
           </div>
         ))}
-        {isLoading && (
+        {isTyping && (
           <div className="message incoming">
             <p>...</p>
           </div>
@@ -77,9 +91,9 @@ const Chat = () => {
           value={inputMessage}
           onChange={(e) => setInputMessage(e.target.value)}
           placeholder="Type your message"
-          disabled={isLoading}
+          disabled={isTyping}
         />
-        <button type="submit" disabled={isLoading}>
+        <button type="submit" disabled={isTyping}>
           Send
         </button>
       </form>
