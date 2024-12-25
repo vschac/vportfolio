@@ -1,7 +1,7 @@
 {
-  "name": "backend",
+  "name": "vportfolio-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend for VPortfolio",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -20,7 +20,7 @@
     "openai": "^4.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22",
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "nodemon": "^2.0.22"
   }
 }
