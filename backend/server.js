@@ -6,7 +6,16 @@ const path = require('path');
 require('dotenv').config();
 
 const app = express();
-app.use(cors({origin: ['http://localhost:3001', 'http://localhost:3000']}));
+app.use(cors({
+  origin: [
+    'http://localhost:3001', 
+    'http://localhost:3000', 
+    'https://vschac.com',
+    'https://secret-sands-35726.herokuapp.com'
+  ],
+  methods: ['POST', 'GET', 'OPTIONS'],
+  credentials: true
+}));
 app.use(express.json());
 
 const openai = new OpenAI({
@@ -59,9 +68,17 @@ initializeSystemMessage();
 app.post('/api/chat', async (req, res) => {
   try {
     const { messages } = req.body;
+    
+    console.log('Received request with messages:', messages);
+
+    if (!messages) {
+      console.error('No messages in request');
+      return res.status(400).json({ error: 'Messages are required' });
+    }
 
     // Make sure system message is initialized
     if (!systemMessage) {
+      console.log('Initializing system message');
       await initializeSystemMessage();
     }
 
@@ -73,19 +90,26 @@ app.post('/api/chat', async (req, res) => {
       }))
     ];
 
+    console.log('Sending to OpenAI:', fullMessages);
+
     const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: "gpt-4",
       messages: fullMessages,
       max_tokens: 150,
       temperature: 0.7,
     });
 
+    console.log('Received OpenAI response:', completion.choices[0]);
+
     res.json({ 
       message: completion.choices[0].message.content 
     });
   } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ error: 'Something went wrong' });
+    console.error('Detailed server error:', error);
+    res.status(500).json({ 
+      error: 'Server error',
+      details: error.message 
+    });
   }
 });
 
