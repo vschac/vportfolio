@@ -129,17 +129,181 @@ body {
 
 @media (max-width: 768px) {
   .navbar {
-    width: 90%;
+    width: 95%;
+    padding: 8px;
   }
 
   .nav-content ul {
-    gap: var(--spacing-sm);
-    padding: var(--spacing-xs) var(--spacing-sm);
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs);
   }
 
   .nav-content a {
     font-size: 0.8rem;
-    padding: 0.3rem 0.6rem;
+    padding: 4px 8px;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+
+  .glowing-text {
+    font-size: 2rem;
+  }
+
+  .typewriter {
+    font-size: 1.2rem;
+  }
+
+  .text-container {
+    min-width: 280px;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    width: 90%;
+  }
+
+  /* About Section */
+  .split-section {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm);
+  }
+
+  .about-content {
+    padding: var(--spacing-sm);
+    margin: 10px;
+  }
+
+  .about-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .photo-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  /* Projects Section */
+  .projects-grid {
+    padding-left: var(--spacing-sm);
+    gap: var(--spacing-md);
+  }
+
+  .project-container {
+    min-width: 300px;
+    width: 85vw;
+  }
+
+  .project-card {
+    padding: var(--spacing-sm);
+  }
+
+  .project-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .project-section h4 {
+    font-size: 1rem;
+  }
+
+  .project-section p {
+    font-size: 0.9rem;
+  }
+
+  /* Skills Section */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+  }
+
+  .skill-card {
+    width: 150px;
+    height: 200px;
+  }
+
+  /* Contact Section */
+  .container {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .container .glass {
+    margin: var(--spacing-xs) 0;
+    transform: rotate(0deg) !important;
+  }
+
+  /* Section Headers */
+  section > h2 {
+    font-size: 2rem;
+    padding: 0 var(--spacing-sm);
+  }
+
+  /* Chat Component */
+  .chat-container {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .chat-messages {
+    max-height: 300px;
+  }
+
+  .chat-input {
+    padding: 8px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .project-container {
+    min-width: 400px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .photo-container {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Landscape Mode */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    min-height: 120vh;
+  }
+
+  .text-container {
+    margin: 0.3rem;
+  }
+
+  .glowing-text {
+    font-size: 1.8rem;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+  .nav-content a:hover::after {
+    transform: none;
+  }
+
+  .project-card:hover {
+    transform: none;
+  }
+
+  .skill-card:hover .skill-content {
+    transform: rotateY(180deg);
+  }
+
+  .container .glass:hover {
+    transform: none;
   }
 }
 
@@ -1567,5 +1731,75 @@ footer {
   .contact-info {
     flex-direction: column;
     align-items: center;
+  }
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  /* Chat Component */
+  .chat-container {
+    width: 90%;
+    min-width: 280px;
+    max-width: none;
+    margin: 10px auto;
+    height: 400px;
+  }
+
+  .chat-messages {
+    max-height: 300px;
+    padding: 10px;
+  }
+
+  .chat-input {
+    padding: 8px;
+  }
+
+  /* Project Cards */
+  .project-container {
+    min-width: 280px;
+    width: 90vw;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .project-card {
+    min-height: auto;
+    height: auto;
+    padding: var(--spacing-sm);
+  }
+
+  .project-content {
+    padding: var(--spacing-xs);
+  }
+
+  /* Skills Grid */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: var(--spacing-sm);
+  }
+
+  .skill-card {
+    width: 140px;
+    height: 200px;
+    margin: 0 auto;
+  }
+}
+
+/* Preserve Desktop Sizes */
+@media (min-width: 769px) {
+  .chat-container {
+    width: 400px;
+    height: 500px;
+  }
+
+  .project-container {
+    min-width: 500px;
+    max-width: 600px;
+  }
+
+  .skill-card {
+    width: 190px;
+    height: 254px;
   }
 }
