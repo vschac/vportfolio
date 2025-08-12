@@ -149,8 +149,26 @@ function App() {
         </h2>
         <div className="projects-grid">
           <ProjectCard 
+            title="Vit"
+            date="July 2025 - August 2025"
+            concept="Vit is an AI powered version control software that follows the Git object model. It includes features such as AI PR reviews, commit splitting for large commits, and a swappable AI client (OpenAI API or locally run model)"
+            tech="OpenAI API, Curl (C++), Ollama, CMake"
+            future="Add more features of the Git object model, such as cloning and a staging area"
+            githubLink="https://github.com/vschac/vit"
+          />
+
+          <ProjectCard 
+            title="JAX-PT"
+            date="April 2025 - August 2025"
+            concept="JAX-PT is a differential perturbation theory calculator for cosmology. It is a re-write of the FAST-PT codebase to be compatible with Jax's autodifferentiation and JIT compilation."
+            tech="Jax, JIT compilation, differential programming"
+            future="Continue to develop the codebase to better utilize Jax's capabilities and remain up to date with the latest developments on Fast-PT"
+            githubLink="https://github.com/vschac/jax-pt"
+          />
+
+          <ProjectCard 
             title="Spotify Hotkey"
-            date="Jul 2024 - Present"
+            date="Jul 2024"
             concept="Developed a desktop application that allows the user to assign hotkeys that will add the user's currently playing song on Spotify to a selected playlist, greatly improves efficiency when building playlists"
             tech="Electron/Electron Forge, Spotify Web API"
             future="Create a deliverable application of the project that can be distributed to Windows and Mac users while keeping sensitive data secure"
@@ -177,7 +195,7 @@ function App() {
 
           <ProjectCard 
             title="Clubhub"
-            date="November 2024 - Present"
+            date="October 2024 - December 2024"
             concept="A centralized platform for managing and discovering university clubs and organizations"
             tech="React, Next.js, Flask, Supabase, TailwindCSS"
             future="Accumulate current Northeastern clubs and organizations into the database"
