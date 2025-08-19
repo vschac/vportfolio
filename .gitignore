@@ -19,6 +19,9 @@
 .env.test.local
 .env.production.local
 
+# Heroku deployment directory
+backend/dry-fortress-09142/
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
