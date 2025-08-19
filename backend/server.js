@@ -94,10 +94,8 @@ app.post('/api/chat', async (req, res) => {
     console.log('Sending to OpenAI:', fullMessages);
 
     const completion = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-5-nano",
       messages: fullMessages,
-      max_tokens: 150,
-      temperature: 0.7,
     });
 
     console.log('Received OpenAI response:', completion.choices[0]);

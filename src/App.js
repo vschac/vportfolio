@@ -1,11 +1,42 @@
 import './index.css';
 import Chat from './components/Chat'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import AsteroidGame from './components/AsteroidGame';
 
 function App() {
   const [isNavVisible, setIsNavVisible] = useState(true);
   const [, setLastScrollY] = useState(0);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+  const projectsGridRef = useRef(null);
+
+  // Enhanced smooth scrolling function for projects
+  const scrollProjects = (direction) => {
+    if (projectsGridRef.current) {
+      const container = projectsGridRef.current;
+      const scrollAmount = container.clientWidth * 0.8; // Scroll by 80% of visible width
+      const targetScroll = direction === 'left' 
+        ? container.scrollLeft - scrollAmount
+        : container.scrollLeft + scrollAmount;
+      
+      // Smooth scroll with custom easing
+      container.scrollTo({
+        left: targetScroll,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Check scroll position to show/hide arrows
+  const checkScrollPosition = () => {
+    if (projectsGridRef.current) {
+      const container = projectsGridRef.current;
+      const { scrollLeft, scrollWidth, clientWidth } = container;
+      
+      setCanScrollLeft(scrollLeft > 10);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,48 +70,35 @@ function App() {
     };
   }, []);
 
-  const skills = [
-    {
-      name: "React",
-      experience: "Used to build this website, learned the basics of React from IBM's full stack developper course"
-    },
-    {
-      name: "Java",
-      experience: "Over 3 years of experience using Java to build projects such as a stock portfolio"
-    },
-    {
-      name: "Python",
-      experience: "Over 3 years of experience using Python to build projects such as the NEAT AI game"
-    },
-    {
-      name: "Git",
-      experience: "Managed version control with partner coding in classes and collaberation on larger projects"
-    },
-    {
-      name: "Flask",
-      experience: "Worked on the backend team to build a club dashboard writing API endpoints in Flask"
-    },
-    {
-      name: "Linear Algebra",
-      experience: "Strong foundation in mathematical concepts applied to computer science and machine learning"
-    },
-    {
-      name: "Object-Oriented Programming",
-      experience: "Extensive experience in designing and implementing object-oriented solutions"
-    },
-    {
-      name: "Information Technology",
-      experience: "Broad knowledge of IT infrastructure, networking, and system administration"
-    },
-    {
-      name: "Algorithms",
-      experience: "Strong foundations in created and interpreting algorithms for various computational purposes"
-    },
-    {
-      name: "RESTful APIs",
-      experience: "Experienced in both using API's in projects and writing my own endpoints"
+  // Add scroll listener to projects grid
+  useEffect(() => {
+    const projectsGrid = projectsGridRef.current;
+    if (projectsGrid) {
+      projectsGrid.addEventListener('scroll', checkScrollPosition, { passive: true });
+      projectsGrid.addEventListener('resize', checkScrollPosition);
+      
+      // Initial check
+      checkScrollPosition();
+
+      return () => {
+        projectsGrid.removeEventListener('scroll', checkScrollPosition);
+        projectsGrid.removeEventListener('resize', checkScrollPosition);
+      };
     }
-  ];
+  }, []);
+
+  const internship = {
+    title: "Software Engineer",
+    company: "NASA Funded Cosmology Research at Northeastern University",
+    duration: "January 2025 - July 2025",
+    role: "Lead Software Engineer",
+    description: "While working at the Cosmology Research Lab, I was given the task of refactoring the codebase for the Fast-PT algorithm to be more memory efficient and user friendly. Fast-PT helps create accurate models of the universe for cosmology research and data calculation pipelines. We published version 4.0 of the software during my co-op and I continued to work on my own version of the code, Jax-PT, for the remainder of the summer.",
+    achievements: [
+      "Provided a 2-3x speedup to all Fast-PT calculations",
+      "Developed a new UX for the codebase that integrates with other cosmology software",
+      "Wrote and maintained documentation and unit tests for the codebase from scratch"
+    ]
+  };
 
   return (
     <div className="App">
@@ -91,7 +109,7 @@ function App() {
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
@@ -116,7 +134,7 @@ function App() {
         <h2>About Me</h2>
         <div className="split-section">
           <div className="about-content">
-            <p>Hello and welcome to my portfolio! Check out my projects and the skills cards below. If you have any questions, feel free to ask VinceGPT!</p>
+            <p>Hello and welcome to my portfolio! Check out my projects and experience below. If you have any questions, feel free to ask VinceGPT!</p>
           </div>
           <div className="photo-container">
             <img src="/me.png" alt="Me" className="photo"/>
@@ -147,7 +165,17 @@ function App() {
             </div>
           </div>
         </h2>
-        <div className="projects-grid">
+        <div className="projects-wrapper">
+          <button 
+            className={`scroll-arrow left ${!canScrollLeft ? 'hidden' : ''}`} 
+            onClick={() => scrollProjects('left')}
+            disabled={!canScrollLeft}
+          >
+            <svg viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+            </svg>
+          </button>
+          <div className="projects-grid" ref={projectsGridRef}>
           <ProjectCard 
             title="Vit"
             date="July 2025 - August 2025"
@@ -185,35 +213,66 @@ function App() {
           />
 
           <ProjectCard 
-            title="Portfolio Website"
-            date="December 2024"
-            concept="Designed and developed a personal portfolio website featuring interactive elements like an asteroid game and an AI chatbot that can answer questions about me"
-            tech="React, Express, OpenAI API"
-            future="Continue to improve the AI chatbot's responses and update the website with new experiences"
-            githubLink="https://github.com/vschac/vportfolio"
+            title="BallWatch"
+            date="July 2025"
+            concept="Data driven application that provides useful insights into the NBA for fans, coaches, and managers. This was a collaborative final project for Intro to Databases at Northeastern University"
+            tech="MySQL, Flask, Streamlit"
+            future="Add the functionality for data to be uploaded automatically as seasons progress"
+            githubLink="https://github.com/dishantbudhi/BallWatch"
           />
 
           <ProjectCard 
             title="Clubhub"
             date="October 2024 - December 2024"
-            concept="A centralized platform for managing and discovering university clubs and organizations"
+            concept="A centralized platform for managing and discovering university clubs and organizations. This was a collaborative project with 27 other students at Northeastern University."
             tech="React, Next.js, Flask, Supabase, TailwindCSS"
             future="Accumulate current Northeastern clubs and organizations into the database"
             githubLink="https://github.com/ktp-alpha-class/clubhub/tree/main"
           />
+          </div>
+          <button 
+            className={`scroll-arrow right ${!canScrollRight ? 'hidden' : ''}`} 
+            onClick={() => scrollProjects('right')}
+            disabled={!canScrollRight}
+          >
+            <svg viewBox="0 0 24 24">
+              <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+            </svg>
+          </button>
         </div>
       </section>
 
-      <section id="skills" className="skills-section">
-        <h2>Skills</h2>
-        <div className="skills-grid">
-          {skills.map((skill, index) => (
-            <SkillItem 
-              key={index}
-              skill={skill.name}
-              experience={skill.experience}
-            />
-          ))}
+      <section id="experience" className="experience-section">
+        <h2>Experience</h2>
+        
+        <div className="internship-showcase">
+          <div className="mission-banner">
+            <div className="mission-icon">🚀</div>
+            <div className="mission-primary">
+              <h3>{internship.title}</h3>
+              <div className="mission-meta">
+                <span className="company">{internship.company}</span>
+                <span className="duration">{internship.duration}</span>
+                <span className="role">{internship.role}</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="mission-content">
+            <div className="content-section">
+              <h4>🏆 Key Achievements</h4>
+              <ul className="achievements-list">
+                {internship.achievements.map((achievement, index) => (
+                  <li key={index}>{achievement}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="content-section mission-brief-expanded">
+              <h4>Description</h4>
+              <p>{internship.description}</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -296,6 +355,18 @@ const ProjectCard = ({ title, date, concept, tech, future, githubLink }) => {
           <p>Read Project Writeup</p>
         </a>
       );
+    } else if (title === "JAX-PT") {
+      return (
+        <a 
+          href="https://pypi.org/project/jax-pt/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="info-link"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <p>View on PyPI</p>
+        </a>
+      );
     }
   };
 
@@ -352,24 +423,5 @@ const ProjectCard = ({ title, date, concept, tech, future, githubLink }) => {
   );
 };
 
-const SkillItem = ({ skill, experience }) => {
-  return (
-    <div className="skill-card">
-      <div className="skill-content">
-        <div className="skill-back">
-          <div className="skill-back-content">
-            <strong>{skill}</strong>
-          </div>
-        </div>
-        <div className="skill-front">
-          <div className="skill-front-content">
-            <div className="skill-description">
-              <p>{experience}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+
 

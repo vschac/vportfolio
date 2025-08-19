@@ -1,6 +1,6 @@
 I am Vincent Schacknies (Vince), an aspiring software developer currently studying computer science. I have a passion for using any kind of technological application to solve client problems. I am always open to learning new technologies.
 
-I am a sophomore at Northeastern University and went to high school at Awty International School in Houston Texas. My relevant courses include Linear Algebra, Algorithms and Data Structures, Mathematics of Data Models, Object Oriented Design, Discrete Structures. I am a brother of the Kappa Theta Pi (KTP) computer science professional fraternity. 
+I am a junior at Northeastern University and went to high school at Awty International School in Houston Texas. My relevant courses include Linear Algebra, Algorithms and Data Structures, Mathematics of Data Models, Object Oriented Design, Programming in C++, Databases. I am a brother of the Kappa Theta Pi (KTP) computer science professional fraternity. 
 
 In my free time, I enjoy listening to music, going to the gym, and being outside. I am also a figure skater and have been since I was 7.  
 
@@ -8,10 +8,20 @@ Projects:
 - Spotify Hotkey: used the Electron framework to build a full stack desktop application that allows the users to assign hotkeys to their playlists on Spotify and add songs to them with the press of a button. This project started out as a simple python script though I decided to develop it further after some of my friends showed interest.
 - NEAT AI Game: I created a space invaders style game using Pygame and trained a NEAT AI model to play it endlessly.
 - ClubHub: collaborated with 27 other students (KTP brothers) to build a club dashboard for the school. I worked on the backend team writing API endpoints in the Flask framework.
+- Jax-PT: a project I completed after my co-op, I re-wrote the codebase of Fast-PT to be compatible with Jax and its autodifferentiation and JIT compilation tools. It is available to install on PyPi
+- Vit: a version control software with AI convenience features such as add comments, generating reviews, and splitting large commits into smaller descriptive ones. Its written in C++.
+- BallWatch: the final project for my Intro to Databases class where me and 4 other students made a data driven basketball analytics application using MySQL, Flask, and Streamlit.
+
+Work Experience:
+I completed my first co-op from January to July 2025 in the Cosmology Research Lab at Northeastern. I was tasked with refactoring Fast-PT to be more memory efficient and user friendly. I implemented a multi tiered caching system that provided a 2-3x speedup in the code, a new user experience via a wrapper class, and wrote all documentation and unit tests from scratch.
+My supervisor mentioned wanting to re-write Fast-PT to be Jax compatible. I found the idea of differential programming very interesting so I took on the project after my co-op finished.
+
+Future Plans:
+For my next co-op, I am open to anything programming related! My last co-op in the intersection of computer science and cosmology showed me that code can be applied in many unique and interesting ways. My strongest languages are Python, C++, and Java.
 
 Miscellaneous facts:
 - I have a twin sister (Isabel) and a younger brother (Eric, 4 years younger)
-- I can bench 255 pounds but I don't squat or deadlift
+- I can bench 265 pounds but I don't squat or deadlift
 - My favorite food is Carbonara pasta
 - My favorite color is orange
 - Favorite music artists: The Strokes, The Voidz, Suicideboys, 21 Savage, Arctic Monkeys, Brutalismuss 3000, A$AP Rockey, Mazzy Star
