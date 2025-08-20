@@ -94,9 +94,9 @@ function App() {
     role: "Lead Software Engineer",
     description: "While working at the Cosmology Research Lab, I was given the task of refactoring the codebase for the Fast-PT algorithm to be more memory efficient and user friendly. Fast-PT helps create accurate models of the universe for cosmology research and data calculation pipelines. We published version 4.0 of the software during my co-op and I continued to work on my own version of the code, Jax-PT, for the remainder of the summer.",
     achievements: [
-      "Provided a 2-3x speedup to all Fast-PT calculations",
-      "Developed a new UX for the codebase that integrates with other cosmology software",
-      "Wrote and maintained documentation and unit tests for the codebase from scratch"
+      "Accelerated all Fast-PT computations by 2–3x through a multi-tiered caching system.",
+      "Redesigned and modernized the API to enable seamless integration with cosmology software ecosystems (e.g., CLASS, CAMB).",
+      "Authored comprehensive documentation and implemented a unit testing framework (pytest) to improve maintainability and scientific reproducibility."
     ]
   };
 
@@ -216,7 +216,7 @@ function App() {
             title="BallWatch"
             date="July 2025"
             concept="Data driven application that provides useful insights into the NBA for fans, coaches, and managers. This was a collaborative final project for Intro to Databases at Northeastern University"
-            tech="MySQL, Flask, Streamlit"
+            tech="Docker, MySQL, Flask, Streamlit"
             future="Add the functionality for data to be uploaded automatically as seasons progress"
             githubLink="https://github.com/dishantbudhi/BallWatch"
           />
