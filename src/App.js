@@ -94,7 +94,7 @@ function App() {
     role: "Lead Software Engineer",
     description: "While working at the Cosmology Research Lab, I was given the task of refactoring the codebase for the Fast-PT algorithm to be more memory efficient and user friendly. Fast-PT helps create accurate models of the universe for cosmology research and data calculation pipelines. We published version 4.0 of the software during my co-op and I continued to work on my own version of the code, Jax-PT, for the remainder of the summer.",
     achievements: [
-      "Accelerated all Fast-PT computations by 2–3x through a multi-tiered caching system.",
+      "Accelerated all Fast-PT computations by 2-3x through a multi-tiered caching system.",
       "Redesigned and modernized the API to enable seamless integration with cosmology software ecosystems (e.g., CLASS, CAMB).",
       "Authored comprehensive documentation and implemented a unit testing framework (pytest) to improve maintainability and scientific reproducibility."
     ]
@@ -161,7 +161,7 @@ function App() {
               </svg>
             </div>
             <div className="tooltip">
-              <p>Click on the project card for more details!</p>
+              <p>Click on the project card!</p>
             </div>
           </div>
         </h2>
