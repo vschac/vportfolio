@@ -282,85 +282,85 @@ function App() {
         <div className="gallery-container">
           <div className="photo-collage">
             <div className="photo-item large">
-              <img src="/coolphotos/IMG_1092.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_1092.jpeg" alt="" />
             </div>
             <div className="photo-item medium">
-              <img src="/coolphotos/IMG_1169.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_1169.jpeg" alt="" />
             </div>
             <div className="photo-item small">
-              <img src="/coolphotos/IMG_1240.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_1240.jpeg" alt="" />
             </div>
             <div className="photo-item medium">
-              <img src="/coolphotos/IMG_2878.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_2878.jpeg" alt="" />
             </div>
             <div className="photo-item large">
-              <img src="/coolphotos/IMG_2904.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_2904.jpeg" alt="" />
             </div>
             <div className="photo-item small">
-              <img src="/coolphotos/IMG_3092.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_3092.jpeg" alt="" />
             </div>
             <div className="photo-item medium">
-              <img src="/coolphotos/IMG_3100.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_3100.jpeg" alt="" />
             </div>
             <div className="photo-item small">
-              <img src="/coolphotos/IMG_3170.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_3170.jpeg" alt="" />
             </div>
             <div className="photo-item large">
-              <img src="/coolphotos/IMG_3242.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_3242.jpeg" alt="" />
             </div>
             <div className="photo-item medium">
-              <img src="/coolphotos/IMG_4150.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_4150.jpeg" alt="" />
             </div>
             <div className="photo-item small">
-              <img src="/coolphotos/IMG_4173.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_4173.jpeg" alt="" />
             </div>
             <div className="photo-item medium">
-              <img src="/coolphotos/IMG_4189.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_4189.jpeg" alt="" />
             </div>
             <div className="photo-item large">
-              <img src="/coolphotos/IMG_4469.JPG" alt="Photo" />
+              <img src="/coolphotos/IMG_4469.JPG" alt="" />
             </div>
             <div className="photo-item small">
-              <img src="/coolphotos/IMG_4578.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_4578.jpeg" alt="" />
             </div>
             <div className="photo-item medium">
-              <img src="/coolphotos/IMG_4616.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_4616.jpeg" alt="" />
             </div>
             <div className="photo-item small">
-              <img src="/coolphotos/IMG_4642.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_4642.jpeg" alt="" />
             </div>
             <div className="photo-item large">
-              <img src="/coolphotos/IMG_4979.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_4979.jpeg" alt="" />
             </div>
             <div className="photo-item medium">
-              <img src="/coolphotos/IMG_5230.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_5230.jpeg" alt="" />
             </div>
             <div className="photo-item small">
-              <img src="/coolphotos/IMG_5328.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_5328.jpeg" alt="" />
             </div>
             <div className="photo-item medium">
-              <img src="/coolphotos/IMG_5505.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_5505.jpeg" alt="" />
             </div>
             <div className="photo-item large">
-              <img src="/coolphotos/IMG_5646.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_5646.jpeg" alt="" />
             </div>
             <div className="photo-item small">
-              <img src="/coolphotos/IMG_5694.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_5694.jpeg" alt="" />
             </div>
             <div className="photo-item medium">
-              <img src="/coolphotos/IMG_5795.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_5795.jpeg" alt="" />
             </div>
             <div className="photo-item small">
-              <img src="/coolphotos/IMG_5822.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_5822.jpeg" alt="" />
             </div>
             <div className="photo-item medium">
-              <img src="/coolphotos/IMG_5858.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_5858.jpeg" alt="" />
             </div>
             <div className="photo-item large">
-              <img src="/coolphotos/IMG_5998.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_5998.jpeg" alt="" />
             </div>
             <div className="photo-item small">
-              <img src="/coolphotos/IMG_8115.jpeg" alt="Photo" />
+              <img src="/coolphotos/IMG_8115.jpeg" alt="" />
             </div>
           </div>
         </div>
