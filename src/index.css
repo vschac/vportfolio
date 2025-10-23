@@ -2282,5 +2282,137 @@ footer {
     padding: 6px 12px;
   }
 
+  .photo-collage {
+    columns: 2;
+    gap: var(--spacing-sm);
+  }
 
+  .photo-item {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .photo-item.large {
+    break-inside: avoid;
+  }
+
+  .photo-item.medium {
+    break-inside: avoid;
+  }
+
+  .photo-item.small {
+    break-inside: avoid;
+  }
+}
+
+/* Gallery Section Styles */
+.gallery-section {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  min-height: 80vh;
+  position: relative;
+}
+
+.gallery-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  box-shadow: 0 0 20px rgba(255, 153, 102, 0.5);
+}
+
+.gallery-section h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, var(--primary-color), #ffcc99);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(255, 153, 102, 0.3);
+}
+
+.gallery-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.photo-collage {
+  columns: 4;
+  column-gap: var(--spacing-md);
+  padding: var(--spacing-md);
+}
+
+.photo-item {
+  break-inside: avoid;
+  margin-bottom: var(--spacing-md);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.photo-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(255, 153, 102, 0.2);
+}
+
+.photo-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.photo-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Different sizes for collage variety */
+.photo-item.large {
+  grid-row: span 3;
+}
+
+.photo-item.medium {
+  grid-row: span 2;
+}
+
+.photo-item.small {
+  grid-row: span 1;
+}
+
+/* Responsive design for photo gallery */
+@media (max-width: 1024px) {
+  .photo-collage {
+    columns: 3;
+    column-gap: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-section {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+
+  .gallery-section h2 {
+    font-size: 2rem;
+  }
+
+  .photo-collage {
+    columns: 2;
+    column-gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+  }
+
+  .photo-item {
+    margin-bottom: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-collage {
+    columns: 1;
+  }
 }
