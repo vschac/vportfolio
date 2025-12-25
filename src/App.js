@@ -362,6 +362,21 @@ function App() {
             <div className="photo-item small">
               <img src="/coolphotos/IMG_8115.jpeg" alt="" />
             </div>
+            <div className="photo-item medium">
+              <img src="/coolphotos/IMG_6348.jpeg" alt="" />
+            </div>
+            <div className="photo-item large">
+              <img src="/coolphotos/IMG_6414.jpeg" alt="" />
+            </div>
+            <div className="photo-item small">
+              <img src="/coolphotos/IMG_6434.jpeg" alt="" />
+            </div>
+            <div className="photo-item medium">
+              <img src="/coolphotos/IMG_6515.jpeg" alt="" />
+            </div>
+            <div className="photo-item large">
+              <img src="/coolphotos/IMG_6629.jpeg" alt="" />
+            </div>
           </div>
         </div>
       </section>
